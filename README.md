@@ -9,7 +9,7 @@ coded by [Gray Security Team](https://T.me/S3CURITY_GRAY)
 
 ## Installation & Runing
 ``` 
-$ cd Hash-Cracker 
+$ cd Bridge-Tor 
 $ pip3 install -r requirements.txt
 $ python3 B-tor.py
 ``` 
