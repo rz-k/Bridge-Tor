@@ -1,6 +1,6 @@
 # Bridge-Tor
 A tool for automatically bridging the Tor service and Configuration Tor service . 
-coded by [Gray Security Team](https://T.me/S3CURITY_GRAY)
+coded by [Gray Security Team](https://T.me/S3CURITY_GRAY).  **You must have root access level to run the tool**.
 
 
 
