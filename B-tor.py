@@ -70,10 +70,8 @@ Bridge obfs4 95.216.186.68:1192 CD6A3B2F22509345DB47F64B2A26FB6A601A1FA0 cert=1g
         x = platform.machine()
         if x.strip() == 'x86_64':
             return '64'
-            # print('64')
         else:
             return '32'
-            # print("32")
 
     def ins_obfsproxy(self):
         try:
@@ -97,18 +95,19 @@ Bridge obfs4 95.216.186.68:1192 CD6A3B2F22509345DB47F64B2A26FB6A601A1FA0 cert=1g
 
     def install_obfs4proxy(self):
         try:
-            call(["sudo", "apt-get", "install", "obfs4proxy", "-y"], stdout=PIPE)
-            if self.getMachine() == '64':
-                self.ins_obf4sproxy_64()
-                print(Fore.LIGHTGREEN_EX + "[✅] Install obfs4proxy [✅]")
-            else:
-                self.ins_obf4sproxy_32()
-                print(Fore.LIGHTGREEN_EX + "[✅] Install obfs4proxy [✅]")
+            call(["sudo", "apt-get", "install", "obfs4proxyxxxx", "-y"], stdout=PIPE)
+            if self.is_obfs4proxy() != True:
+                if self.getMachine() == '64':
+                    self.ins_obf4sproxy_64()
+                    print(Fore.LIGHTGREEN_EX + "[✅] Install obfs4proxy [✅]")
+                else:
+                    self.ins_obf4sproxy_32()
+                    print(Fore.LIGHTGREEN_EX + "[✅] Install obfs4proxy [✅]")
         except:
             pass
     def install_obfsproxy(self):
         try:
-            call(["sudo", "apt-get", "install", "obfsproxy", "-y"], stdout=PIPE)
+            call(["sudo", "apt-get", "install", "obfsproxyxxxx", "-y"], stdout=PIPE)
             if self.is_obfsproxy() != True:
                 self.ins_obfsproxy()
                 print(Fore.LIGHTGREEN_EX + "[✅] Install obfsproxy [✅]")
@@ -151,7 +150,6 @@ if __name__ == '__main__':
 
     T = Config_Tor()
     T.banner()
-#    T.getMachine()
     if T.is_obfs4proxy() != True:
         T.install_obfs4proxy()
     if T.is_obfsproxy() != True:
