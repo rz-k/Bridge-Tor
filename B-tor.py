@@ -53,15 +53,17 @@ Bridge obfs4 95.216.186.68:1192 CD6A3B2F22509345DB47F64B2A26FB6A601A1FA0 cert=1g
     #=====================================
 
     def is_obfsproxy(self):
-        x = os.popen("dpkg -s obfsproxy |grep -Poi 'status: \K\S\w.*'").read()
-        if x.strip() == 'install ok installed':
+        x = call("ls /usr/bin/ | grep obfsproxy", shell=True, stdin=PIPE)
+        if x == 0:
             return True
+            # print("y")
         else:
+            # print("n")
             return False
 
     def is_obfs4proxy(self):
-        x = os.popen("dpkg -s obfs4proxy |grep -Poi 'status: \K\S\w.*'").read()
-        if x.strip() == 'install ok installed':
+        x = call("ls /usr/bin/ | grep obfs4proxy", shell=True, stdin=PIPE)
+        if x == 0:
             return True
         else:
             return False
@@ -99,21 +101,25 @@ Bridge obfs4 95.216.186.68:1192 CD6A3B2F22509345DB47F64B2A26FB6A601A1FA0 cert=1g
     def install_obfs4proxy(self):
         try:
             # call(["sudo", "apt-get", "install", "obfs4proxyxxxx", "-y"], stdout=PIPE)
-            # if self.is_obfs4proxy() != True:
-            if self.getMachine() == '64':
-                self.ins_obf4sproxy_64()
-                print(Fore.LIGHTGREEN_EX + "[✅] Install obfs4proxy [✅]")
+            if self.is_obfs4proxy() != True:
+                if self.getMachine() == '64':
+                    self.ins_obf4sproxy_64()
+                    print(Fore.LIGHTGREEN_EX + "[✅] Install obfs4proxy [✅]")
+                else:
+                    self.ins_obf4sproxy_32()
+                    print(Fore.LIGHTGREEN_EX + "[✅] Install obfs4proxy [✅]")
             else:
-                self.ins_obf4sproxy_32()
-                print(Fore.LIGHTGREEN_EX + "[✅] Install obfs4proxy [✅]")
+                print(Fore.LIGHTGREEN_EX + "[✅] obfs4proxy exists [✅]")
         except:
             pass
     def install_obfsproxy(self):
         try:
             # call(["sudo", "apt-get", "install", "obfsproxyxxxx", "-y"], stdout=PIPE)
-            # if self.is_obfsproxy() != True:
-            self.ins_obfsproxy()
-            print(Fore.LIGHTGREEN_EX + "[✅] Install obfsproxy [✅]")
+            if self.is_obfsproxy() != True:
+                self.ins_obfsproxy()
+                print(Fore.LIGHTGREEN_EX + "[✅] Install obfsproxy [✅]")
+            else:
+                print(Fore.LIGHTGREEN_EX + "[✅] obfsproxy exists [✅]")
 
         except:
             self.ins_obfsproxy()
