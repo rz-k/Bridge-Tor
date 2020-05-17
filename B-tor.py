@@ -162,7 +162,7 @@ if __name__ == '__main__':
     else:
         T.check_text_one()
         T.check_text_tow()
-        call(["service", "GRATOR", "restart"])
+        call(["service", "tor", "restart"])
         print(Fore.LIGHTGREEN_EX + "[✅] Successfully configured [✅] ")
 
 
