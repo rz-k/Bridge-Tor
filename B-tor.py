@@ -6,7 +6,7 @@ from colorama import Fore
 from colorama import init
 
 init(autoreset=True)
-from subprocess import call, PIPE
+from subprocess import call, PIPE, check_call
 
 
 class Config_Tor(object):
@@ -81,13 +81,16 @@ Bridge obfs4 95.216.186.68:1192 CD6A3B2F22509345DB47F64B2A26FB6A601A1FA0 cert=1g
 
     def ins_obf4sproxy_64(self):
         try:
-            call(["sudo", "dpkg", "-i", "obfs/obfs4proxy_amd64.deb"], stdout=PIPE)
+            # call(["sudo", "dpkg", "-i", "obfs/obfs4proxy_amd64.deb"], stdout=PIPE)
+            call(["sudo", "apt", "install", "./obfs/obfs4proxy_amd64.deb","-y"], stdout=PIPE)
         except:
             pass
 
     def ins_obf4sproxy_32(self):
         try:
-            call(["sudo", "dpkg", "-i", "obfs/obfsproxy_all.deb"], stdout=PIPE)
+            # call(["sudo", "dpkg", "-i", "obfs/obfsproxy_all.deb"], stdout=PIPE)
+            call(["sudo","apt", "install", "./obfs/obfsproxy_all.deb", "y"], stdout=PIPE)
+
         except:
             pass
 
@@ -95,22 +98,22 @@ Bridge obfs4 95.216.186.68:1192 CD6A3B2F22509345DB47F64B2A26FB6A601A1FA0 cert=1g
 
     def install_obfs4proxy(self):
         try:
-            call(["sudo", "apt-get", "install", "obfs4proxyxxxx", "-y"], stdout=PIPE)
-            if self.is_obfs4proxy() != True:
-                if self.getMachine() == '64':
-                    self.ins_obf4sproxy_64()
-                    print(Fore.LIGHTGREEN_EX + "[✅] Install obfs4proxy [✅]")
-                else:
-                    self.ins_obf4sproxy_32()
-                    print(Fore.LIGHTGREEN_EX + "[✅] Install obfs4proxy [✅]")
+            # call(["sudo", "apt-get", "install", "obfs4proxyxxxx", "-y"], stdout=PIPE)
+            # if self.is_obfs4proxy() != True:
+            if self.getMachine() == '64':
+                self.ins_obf4sproxy_64()
+                print(Fore.LIGHTGREEN_EX + "[✅] Install obfs4proxy [✅]")
+            else:
+                self.ins_obf4sproxy_32()
+                print(Fore.LIGHTGREEN_EX + "[✅] Install obfs4proxy [✅]")
         except:
             pass
     def install_obfsproxy(self):
         try:
-            call(["sudo", "apt-get", "install", "obfsproxyxxxx", "-y"], stdout=PIPE)
-            if self.is_obfsproxy() != True:
-                self.ins_obfsproxy()
-                print(Fore.LIGHTGREEN_EX + "[✅] Install obfsproxy [✅]")
+            # call(["sudo", "apt-get", "install", "obfsproxyxxxx", "-y"], stdout=PIPE)
+            # if self.is_obfsproxy() != True:
+            self.ins_obfsproxy()
+            print(Fore.LIGHTGREEN_EX + "[✅] Install obfsproxy [✅]")
 
         except:
             self.ins_obfsproxy()
@@ -150,10 +153,10 @@ if __name__ == '__main__':
 
     T = Config_Tor()
     T.banner()
-    if T.is_obfs4proxy() != True:
-        T.install_obfs4proxy()
-    if T.is_obfsproxy() != True:
-        T.install_obfsproxy()
+    # if T.is_obfs4proxy() != True:
+    T.install_obfs4proxy()
+    # if T.is_obfsproxy() != True:
+    T.install_obfsproxy()
 
     if T.check_to_text():
         T.text_exiest()
