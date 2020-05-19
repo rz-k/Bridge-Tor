@@ -5,7 +5,7 @@ coded by [Gray Security Team](https://T.me/S3CURITY_GRAY).  **You must have root
 
 
 ### Config
-![alt text](http://s7.picofile.com/file/8392450576/B_tor.png "Config ! ")
+![alt text](http://s13.picofile.com/file/8397614268/bri.png "Config ! ")
 
 ## Installation & Runing
 ``` 
