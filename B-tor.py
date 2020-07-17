@@ -24,8 +24,8 @@ ClientTransportPlugin obfs3 exec /usr/bin/obfsproxy managed
 ClientTransportPlugin obfs4 exec /usr/bin/obfs4proxy managed
 '''
         self.text_2 = r'''
-Bridge obfs4 209.6.217.38:21550 A85BB204DBAB68B754FECEFF883B2F97A6FA71CD cert=tKWQMfH+fJSp5QobD1yQOm2BNZTZgmf3btXYsYQPXT5wd+I0rCvuz4jEbNuUhVnkC2hKcA iat-mode=0
-Bridge obfs4 2.243.164.25:46595 4A34AF5AB467ECAE4291BF8F3BE5A151D93182F8 cert=7NQBqs0znoEz+7OUBwON+sSasp7CdrH9kXXhx0nMoLvXYlYBUnhYxvbXBgIzw6wu4ZI6Hw iat-mode=0
+Bridge obfs4 137.186.98.194:80 B98F4BBEF1530479B82AF4C8A50D5F41436F5C40 cert=SRXyYEoT7x3WkhiQLVeU5VMWCmZZgg14Udi+sdd3Hc/iwZ4DB07AtxoJr/Wo8L9YRmwVSw iat-mode=0
+Bridge obfs4 195.123.245.176:30384 82468406637273DC32D1AB8076D7F1D89B6A195B cert=I5WxagaSRRnNuCurk16hxZP6XQ7DC7x3t0CDuhIPdbPpJEPKh4/bLScH9I+unrckML4yaQ iat-mode=0
 '''
 
         self.banner_t = r"""     
